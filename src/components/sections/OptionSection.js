@@ -10,13 +10,13 @@ function OptionsHeader() {
 <div className="col-6 section">
 
 <p>This should contain a variety of buttons to toggle sections!</p>
-<button>test</button>
-<button type="button" class="btn btn-secondary">Skills</button>
-<button type="button" class="btn btn-secondary">Stats</button>
-<button type="button" class="btn btn-secondary">Spells</button>
-<button type="button" class="btn btn-secondary">Partyy</button>
-<button type="button" class="btn btn-secondary">Location</button>
-<button type="button" class="btn btn-secondary">Notes</button>
+
+<button type="button" class="btn btn-secondary spacer btn-sm">Skills</button>
+<button type="button" class="btn btn-secondary spacer btn-sm">Stats</button>
+<button type="button" class="btn btn-secondary spacer btn-sm">Spells</button>
+<button type="button" class="btn btn-secondary spacer btn-sm" >Party</button>
+<button type="button" class="btn btn-secondary spacer btn-sm" >Location</button>
+<button type="button" class="btn btn-secondary spacer btn-sm">Notes</button>
 {/* I want notes for each character... those should show up upon clicking a ymbol/button near their name? ...this might be a good use for a modal... 
 ...or I need a dedicated section for reading notes...
  */}

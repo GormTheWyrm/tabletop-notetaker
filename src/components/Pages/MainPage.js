@@ -6,6 +6,8 @@ import SkillSection from '../sections/SkillSection';
 import StatSection from '../sections/StatSection';
 import SpellSection from '../sections/SpellSection';
 import Notes from '../sections/Notes';
+import LocationSection from '../sections/LocationSection';
+import MapSection from '../sections/MapSection';
 
 // By extending the React.Component class, Counter inherits functionality from it
 class MainPage extends React.Component {
@@ -23,13 +25,15 @@ class MainPage extends React.Component {
       <div className="container-fluid pageInset">
         <div className="row">
 
-          <div className="col-lg-4 col-md-6 testCont"> {/* left section */}
+          <div className="col-lg-6 col-md-6 testCont"> {/* left section */}
+          <div className="row buffer">
             <CharacterHeader />
             <OptionSection />
+            </div>
             <StatSection />
             <SkillSection />
           </div>
-          <div className="col-lg-4 col-md-6 testCont">
+          <div className="col-lg-2 col-md-6 testCont">
             {/* middle section, center */}
             <SpellSection />
 
@@ -38,7 +42,10 @@ class MainPage extends React.Component {
           <div className="col-lg-4 testCont">
             {/* right section */}
         Notes section
+        <LocationSection />
+        <MapSection />
         <Notes />
+
           </div>
 
         </div>
@@ -59,7 +66,8 @@ header option allows sorting
 -or at the very least, each container could appear upon click of a button
 within header and that would allow the user to reorder them by untogglign them and retoggling
 
-
+...
+perhaps everythign has a click me for modal button?
 
     4,4,4 or 4,2,2,4 or 4,3,5 ...x/12 for bootstrap
                 mobile or small devices will need to have 3 tabs the user can chose between instead of trying to dsplay all at once.
