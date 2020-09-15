@@ -9,6 +9,39 @@ import Notes from '../sections/Notes';
 import LocationSection from '../sections/LocationSection';
 import MapSection from '../sections/MapSection';
 
+import {} from 'react-bootstrap';
+
+/* Notes 
+~~~~~~~~
+Right now there are 3 main sections...
+...and many minor sections.
+
+Lets focus on the first few.
+I want to be able to 
+1. edit character name
+2. Add character stat like HP
+3. Add a Skill
+4. Add a spell card
+5. edit and delete stats
+6. edit and delete skills
+7. edit and delete cards
+8. Switch between characters via database
+
+then i can work on the 
+#. location, map, and general sections
+
+
+So, should buttons add things to the database, and the database fill out the form? Yeah.
+...need to figure out starting page.
+ 
+
+..pop up for adding notes when button clicked? look up details for bootstrap-react
+~~~~~~~~
+*/ 
+
+
+//perhaps each section should have simply been a "Section" component with different objects passed in? they seem to really just be divs...
+
 // By extending the React.Component class, Counter inherits functionality from it
 class MainPage extends React.Component {
   // Setting the initial state of the Counter component
@@ -16,6 +49,11 @@ class MainPage extends React.Component {
     // array of which components are visible
     //or individual variables for each component?
   };
+
+  handleAddStat = () => {
+    console.log("click");
+
+  }
 
 
 
@@ -25,16 +63,18 @@ class MainPage extends React.Component {
       <div className="container-fluid pageInset">
         <div className="row">
 
-          <div className="col-lg-6 col-md-6 testCont"> {/* left section */}
-          <div className="row buffer">
-            <CharacterHeader />
-            <OptionSection />
+          <div className="col-lg-5 col-md-6 testCont"> {/* left section */}
+            <div className="row buffer">
+              <CharacterHeader />
+              {/* <OptionSection /> */}
+              {/* lets add in options section later- start with a simple note taker */}
             </div>
             <StatSection />
             <SkillSection />
           </div>
-          <div className="col-lg-2 col-md-6 testCont">
+          <div className="col-lg-3 col-md-6 testCont">
             {/* middle section, center */}
+            {/* this could use a */}
             <SpellSection />
 
           </div>
@@ -42,9 +82,10 @@ class MainPage extends React.Component {
           <div className="col-lg-4 testCont">
             {/* right section */}
         Notes section
-        <LocationSection />
-        <MapSection />
-        <Notes />
+        {/* this section will need to be based around the idea of click on this to expand it */}
+            <LocationSection />
+            <MapSection />
+            <Notes />
 
           </div>
 
@@ -82,6 +123,8 @@ perhaps everythign has a click me for modal button?
                     -would be better if user could move or even resize the tabs!
 
 
-
+I want a section where you can see all the names of people you wrote notes on, click on a name and pull up info on that person.
+I want this for locations as well...
+...and ability to add tabs/notes sections...
 
 */
