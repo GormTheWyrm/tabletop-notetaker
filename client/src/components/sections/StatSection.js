@@ -2,7 +2,7 @@ import React from 'react';
 // import '../../App.css';
 
 
-function DescriptionSection() {
+function StatSection() {
 
     //each section component should be a row
     // use this for notes on the character!
@@ -12,9 +12,9 @@ function DescriptionSection() {
   return (
 
     <div className="col-12 section">
-        <p>Description section</p>
+        <p>Stat section</p>
     </div>
   );
 }
 
-export default DescriptionSection;
+export default StatSection;

@@ -1,15 +1,15 @@
 import React from 'react';
-import OptionSection from '../sections/OptionSection';
-import Template from '../sections/Template';
+// import OptionSection from '../sections/OptionSection';
+// import Template from '../sections/Template';
 import CharacterHeader from '../sections/CharacterHeader';
 import DescriptionSection from '../sections/DescriptionSection';
-import StatSection from '../sections/DescriptionSection';
+import StatSection from '../sections/StatSection';
 import SpellSection from '../sections/SpellSection';
 import Notes from '../sections/Notes';
 import LocationSection from '../sections/LocationSection';
 import MapSection from '../sections/MapSection';
 
-import {} from 'react-bootstrap';
+import { } from 'react-bootstrap';
 
 /* Notes 
 ~~~~~~~~
@@ -37,7 +37,7 @@ So, should buttons add things to the database, and the database fill out the for
 
 ..pop up for adding notes when button clicked? look up details for bootstrap-react
 ~~~~~~~~
-*/ 
+*/
 
 
 //perhaps each section should have simply been a "Section" component with different objects passed in? they seem to really just be divs...

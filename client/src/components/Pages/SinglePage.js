@@ -1,5 +1,5 @@
 import React from 'react';
-import Template from '../sections/Template';
+// import Template from '../sections/Template';
 import MainSection from '../sections/MainSection';
 
 class SinglePage extends React.Component {

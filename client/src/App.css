@@ -42,6 +42,7 @@ padding-right: 15px;
 .btn-right{
   position: relative;
   right: auto;
+  /* this didnt work, will look into it later (characterHeader) */
 }
 
 
@@ -83,4 +84,14 @@ padding-right: 15px;
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+.my-form{
+  color: #61dafb;
+  background-color: black;
+  text-align: end;
+  width: 50px;
+  margin-left: 15px;
 }
