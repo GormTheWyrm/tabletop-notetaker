@@ -35,7 +35,7 @@ class CharacterHeader extends React.Component {
   handleNameChange = (event) => {
     this.setState({ characterName: event.target.value });
   } //need a way for this function to determine which section is being changed...
-
+// lets make this a modal instead!
   //onChange is a event for form fields...
   testFunction = (event) => {
     this.setState({});
@@ -47,7 +47,7 @@ class CharacterHeader extends React.Component {
 
       <div className="col-12 section">
         {/* have to change col size if adding option section in... but options section looked ugly so we should find a better option */}
-        <h3 contentEditable="true" onChange={this.handleNameChange} >{this.state.characterName}</h3>
+        <h3>{this.state.characterName}</h3>
 
         {this.state.resource.map((resource, index) =>
 
