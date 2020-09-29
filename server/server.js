@@ -2,7 +2,7 @@
 
 const express = require('express');
 const path = require('path');
-const db = require('./config/connection');  //not set up yet
+const db = require('./config/connection');  //not set up yet?
 const routes = require('./routes');
 
 // const mongoose = require("mongoose");    //should use elsewhere
@@ -15,7 +15,7 @@ app.use(express.json());
 
 // use static if in production... may need tweaking for different hosting locations?
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static(path.join(__dirname, '../client/build'))); //70% sure this will need to be tweaked for production
 }
 // Add routes, both API and view
 app.use(routes);
@@ -33,5 +33,5 @@ app.listen(PORT, function() {
 
 
 db.once('open', () => {
-    app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
+    app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));
   });

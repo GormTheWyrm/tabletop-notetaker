@@ -15,7 +15,7 @@ let maxHP = "##";
       {/* have to change col size if adding option section in... but options section looked ugly so we should find a better option */}
         <h3>{CharacterName}</h3>
         <p>HP: {currentHP} / {maxHP} </p>
-        {/* add stat button? */}    <button type="button" class="btn btn-secondary btn-sm">Add button</button>
+        {/* add stat button? */}    <button type="button" className="btn btn-secondary btn-sm">Add button</button>
     </div>
   );
 }
