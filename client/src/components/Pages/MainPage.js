@@ -2,8 +2,8 @@ import React from 'react';
 import OptionSection from '../sections/OptionSection';
 import Template from '../sections/Template';
 import CharacterHeader from '../sections/CharacterHeader';
-import SkillSection from '../sections/SkillSection';
-import StatSection from '../sections/StatSection';
+import DescriptionSection from '../sections/DescriptionSection';
+import StatSection from '../sections/DescriptionSection';
 import SpellSection from '../sections/SpellSection';
 import Notes from '../sections/Notes';
 import LocationSection from '../sections/LocationSection';
@@ -70,7 +70,8 @@ class MainPage extends React.Component {
               {/* lets add in options section later- start with a simple note taker */}
             </div>
             <StatSection />
-            <SkillSection />
+            <h5>Character Notes</h5>
+            <DescriptionSection />
           </div>
           <div className="col-lg-3 col-md-6 testCont">
             {/* middle section, center */}
@@ -81,11 +82,12 @@ class MainPage extends React.Component {
 
           <div className="col-lg-4 testCont">
             {/* right section */}
-        Notes section
+       Setting section
         {/* this section will need to be based around the idea of click on this to expand it */}
             <LocationSection />
             <MapSection />
             <Notes />
+            {/* this should be campaign notes... or misc notes... ok, notes works */}
 
           </div>
 

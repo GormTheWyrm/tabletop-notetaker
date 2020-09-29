@@ -9,8 +9,7 @@
 const { Character } = require('../models'); //this is not working yet!
 
 module.exports = {
-  
-  //bad function?
+  // gets all data- may need to remove later
   async getAllData(req, res) {    // this function works now
     const allData = await Character.find();
     if (!allData) {
@@ -18,8 +17,14 @@ module.exports = {
     }
     return res.json(allData);
   },
+// update sections...
 
 
+
+
+
+
+  //simple tests
   async testFunction(req, res) {    // this function works now
     
     return res.json("this is a character test");

@@ -39,7 +39,10 @@ padding-right: 15px;
   margin: 2px;
 }
 
-
+.btn-right{
+  position: relative;
+  right: auto;
+}
 
 
 

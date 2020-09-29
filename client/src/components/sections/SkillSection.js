@@ -1,8 +1,12 @@
+// unneeded- spells will be movesets
+
+
+
 import React from 'react';
 // import '../../App.css';
 import Skill from '../Skill'
 
-function Template() {
+function SkillSection() {
 
     //each section component should be a row
   return (
@@ -16,4 +20,4 @@ function Template() {
   );
 }
 
-export default Template;
+export default SkillSection;
