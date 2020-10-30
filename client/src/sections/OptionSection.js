@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../SCSS/main.css';
 //may need to create new sections on the fly
 
 

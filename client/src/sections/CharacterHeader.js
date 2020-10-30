@@ -1,6 +1,7 @@
 
 import React from 'react';
-import '../../App.css';
+import '../SCSS/main.css';
+import Resource from '../components/Resource';
 // import AddStatForm from '../addStatForm';
 // I may need to make the input its own component
 
@@ -37,6 +38,7 @@ class CharacterHeader extends React.Component {
       inputValue1: 0
     }
     this.handleAdd = this.handleAdd.bind(this); // is this needed? This is reason I have constructor
+    this.handleAddition = this.handleAddition.bind(this);
   }
 
   //binding not needed if define funcitons with arrow functions!
@@ -61,13 +63,9 @@ class CharacterHeader extends React.Component {
   //onChange is a event for form fields...
 
 
-  testFunction = (event) => {
-    this.setState({});
-    console.log(this.state);
-    console.log(event.target.value);
-  } //on save right now.... fix!
 
-  handleAdd = (event, resNum) => {
+
+  handleAdd = (event, resNum) => {    //handles current add button in this compoenent- needs to be changed to other compoenent
     event.preventDefault();
     let current = this.state.resource[resNum].current;
     let inputValue = this.state.inputValue1;  //this should eventually be this.state.resource[resNum].addValue
@@ -88,22 +86,42 @@ class CharacterHeader extends React.Component {
 
   // https://stackoverflow.com/questions/29810914/react-js-onclick-cant-pass-value-to-method
   //increase max button and function...
+  //use spread operator to add new resource?
 
 
-  //ise spread operator to add new resource
+  handleResourceChange = (event, index) => {  // this allows subcomponent numbers to be changed by the user
+    event.preventDefault();
+    const target = event.target;  //this is a string 
+    console.log(event.target.value);
+    const value = parseInt(target.value); //this should be an integer now
+    let tempObject = this.state.resource;
+    tempObject[index].addValue = value;
+    this.setState({
+      resource: tempObject
+    });
 
+  }
+
+  handleAddition = (event, index) => {    // this handles math within the resource.
+    event.preventDefault();
+    let current = this.state.resource[index].current;
+    let inputValue = this.state.resource[index].addValue
+    let newValue = current + inputValue;  
+    let maxValue = this.state.resource[index].max;
+    let minValue = this.state.resource[index].min;
+    if (newValue > maxValue) {
+      newValue = maxValue;
+    } else if (newValue < minValue) {
+      newValue = minValue;
+    }
+    let tempObject = this.state.resource;
+    tempObject[index].current = newValue;
+    this.setState({ resource: tempObject });
+
+  } 
 
 
   handleInputChange = (event) => {
-    // console.log(event.target);
-    // for(let i=0; i++; i<this.state.resource.length){
-    //   if(event.target.name === this.state.resource[i].name){
-    //     let tempRes = this.state.resource;
-    //     tempRes[i].addValue = event.target.value;
-    //     this.setState({resource: tempRes});
-    //   }
-    //   console.log(this.state);
-    // }
     const target = event.target;  //this is a string 
     console.log(event.target.value);
     const value = parseInt(target.value); //this should be an integer now
@@ -112,6 +130,8 @@ class CharacterHeader extends React.Component {
       inputValue1: value
     });
   }
+
+
 
 
   handleSave = (event) => {
@@ -168,7 +188,7 @@ class CharacterHeader extends React.Component {
     let resourceSize = this.state.resource.length;
     console.log("~~ character Data:");
     console.log(characterExportData);
-    for (let i=0; i< resourceSize; i++) {
+    for (let i = 0; i < resourceSize; i++) {
       characterExportData.resource[i] = this.state.resource[i];
     }
   }
@@ -189,6 +209,18 @@ class CharacterHeader extends React.Component {
             {/* this should display all resources in state */}
 
 
+            <Resource
+              resourceName={this.state.resource[index].resourceName}
+              currentNum={this.state.resource[index].current}
+              maxNum={this.state.resource[index].max}
+              minNum={this.state.resource[index].min}
+              handleInputChange={(e) => this.handleResourceChange(e, index)}
+              addNum={this.state.resource[index].addValue}
+              resourceIndex={index}
+              handleSubmit={(e) => this.handleAddition(e, index)}
+            />
+
+
             <form className="form-inline" onSubmit={(e) => this.handleAdd(e, index)}>
               <span>{this.state.resource[index].resourceName} {this.state.resource[index].current} / {this.state.resource[index].max} </span>
 
@@ -198,16 +230,20 @@ class CharacterHeader extends React.Component {
               </label>
               <input type="submit" value="Add" />
             </form>
-          </div>
+          </div>  //replace this div with the Resource component
+
 
         )}
 
-
-        <button type="button" className="btn btn-secondary btn-sm">Add Resource</button>
-        <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleSave}>Save Section</button>
-        {/* save button should be in each location that can be saved, or entire section only has 1? */}
-        {/* NEED TO ADD A MINIMUM BUTTON SO THAT USERS CAN SET hp, ETC TO NEGATIVE NUMBERS (such as setting hp to -1/2 max hp) */}
-
+        <div className="subcomponent">
+          <button type="button" className="btn btn-secondary btn-sm">Add Resource</button>
+          {/* this should simply add a resource to state and let the app rerender! */}
+          <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleSave}>Save Section</button>
+          {/* save button should be in each location that can be saved, or entire section only has 1? */}
+          {/* NEED TO ADD A MINIMUM BUTTON SO THAT USERS CAN SET hp, ETC TO NEGATIVE NUMBERS (such as setting hp to -1/2 max hp) */}
+          {/* format buttons! subcomponent class provides top and bottom padding to div, acting as margins for buttons */}
+          {/* add resource should pop up and let the user fill in resourceName, minimum, current and max */}
+        </div>
       </div>
     );
   }

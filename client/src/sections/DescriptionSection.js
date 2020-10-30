@@ -1,5 +1,5 @@
 import React from 'react';
-// import '../../App.css';
+import '../SCSS/main.css';
 
 
 function DescriptionSection() {
@@ -18,3 +18,8 @@ function DescriptionSection() {
 }
 
 export default DescriptionSection;
+
+// minimum viable product is a block of text.
+// preferably several blocks of text...
+// perhaps allow input of headers and paragraphs...
+// add pictures?

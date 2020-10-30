@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../SCSS/main.css';
 
 
 function Spell() {

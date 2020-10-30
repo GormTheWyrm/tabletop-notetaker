@@ -3,7 +3,7 @@ import React from 'react';
 // import Template from '../sections/Template';
 import CharacterHeader from '../sections/CharacterHeader';
 import DescriptionSection from '../sections/DescriptionSection';
-import StatSection from '../sections/StatSection';
+// import StatSection from '../sections/StatSection';
 import SpellSection from '../sections/SpellSection';
 import Notes from '../sections/Notes';
 import LocationSection from '../sections/LocationSection';
@@ -69,7 +69,7 @@ class MainPage extends React.Component {
               {/* <OptionSection /> */}
               {/* lets add in options section later- start with a simple note taker */}
             </div>
-            <StatSection />
+            
             <h5>Character Notes</h5>
             <DescriptionSection />
           </div>

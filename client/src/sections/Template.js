@@ -1,16 +1,16 @@
 import React from 'react';
+import '../SCSS/main.css';
 
-// probably will not use this...
 
-function MainSection() {
+function Template() {
 
     //each section component should be a row
   return (
 
     <div className="col-12 section">
-        <p>pull in any section here? </p>
+        <p>section</p>
     </div>
   );
 }
 
-export default MainSection;
+export default Template;

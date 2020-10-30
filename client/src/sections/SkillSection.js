@@ -3,8 +3,8 @@
 
 
 import React from 'react';
-// import '../../App.css';
-import Skill from '../Skill'
+import '../SCSS/main.css';
+import Skill from '../components/Skill';
 
 function SkillSection() {
 

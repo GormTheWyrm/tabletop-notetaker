@@ -1,17 +1,16 @@
 import React from 'react';
+import '../SCSS/main.css';
 
 
-
-function MapSection() {
+function Notes() {
 
     //each section component should be a row
   return (
 
     <div className="col-12 section">
-        <p>Map section</p>
-        {/* this should open a modal? */}
+        <p>General notes will go here</p>
     </div>
   );
 }
 
-export default MapSection;
+export default Notes;

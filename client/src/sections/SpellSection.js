@@ -1,6 +1,6 @@
 import React from 'react';
-import Spell from '../Spell';
-
+import Spell from '../components/Spell';
+import '../SCSS/main.css';
 //this should be for spells and other actions- 
 //debating changing name to reflect 4th edition abilities... moveset?
 function SpellSection() {

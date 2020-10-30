@@ -1,17 +1,17 @@
 import React from 'react';
 import '../SCSS/main.css';
 
+// probably will not use this...
 
-function Template() {
+function MainSection() {
 
     //each section component should be a row
   return (
 
     <div className="col-12 section">
-        <button>Person Name</button>
-        {/* map of people. click to get a larger section of info... */}
+        <p>pull in any section here? </p>
     </div>
   );
 }
 
-export default Template;
+export default MainSection;

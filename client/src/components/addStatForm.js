@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import '../SCSS/main.css';
 
 class AddStatForm extends React.Component {
     constructor(props) {

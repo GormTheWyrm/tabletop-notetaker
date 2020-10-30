@@ -1,6 +1,6 @@
 import React from 'react';
-import Person from '../Person'
-
+import Person from '../compenents/Person';
+import '../SCSS/main.css';
 
 function PeopleSection() {
 

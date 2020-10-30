@@ -1,5 +1,5 @@
 import React from 'react';
-// import '../../App.css';
+import '../SCSS/main.css';
 
 
 function StatSection() {
@@ -18,3 +18,5 @@ function StatSection() {
 }
 
 export default StatSection;
+
+//currently no use for this section!

@@ -2,16 +2,16 @@ import React from 'react';
 import '../SCSS/main.css';
 
 
-function Template() {
+function MapSection() {
 
     //each section component should be a row
   return (
 
     <div className="col-12 section">
-        <button>Person Name</button>
-        {/* map of people. click to get a larger section of info... */}
+        <p>Map section</p>
+        {/* this should open a modal? */}
     </div>
   );
 }
 
-export default Template;
+export default MapSection;
