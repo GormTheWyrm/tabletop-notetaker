@@ -19,6 +19,17 @@
   padding-bottom: 5px;
 }
 
+.modal {
+  display: none;
+  position: relative;
+}
+
+.long-form {
+  width: 200px;
+  color: #61dafb;
+  background-color: #282c34;
+}
+
 /* old */
 .pageInset {
   /* creates a space inside of the main app */

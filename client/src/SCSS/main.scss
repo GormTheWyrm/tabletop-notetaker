@@ -63,6 +63,28 @@ $otherColor3: #fb6161;
   padding-bottom: 5px;
 }
 
+
+.modal
+{
+  display: none;
+  position: relative; //should be fixed?
+  //discontinued, will fix later
+
+}
+
+
+
+
+
+// ~~~
+.long-form{
+  width: 200px;
+  color: $color2;
+  background-color: $color1;
+}
+
+
+
 /* old */
 
   
