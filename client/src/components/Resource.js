@@ -22,19 +22,19 @@ function Resource(props) {
           </label>
           <label>
             Resource minimum:
-        <input type="text" name="min" value={props.minNum} onChange={props.handleEdit}
+        <input type="number" name="min" value={props.minNum} onChange={props.handleEdit}
               className='long-form'
             />
           </label>
           <label>
             Resource Maximum:
-        <input type="text" name="max" value={props.maxNum} onChange={props.handleEdit}
+        <input type="number" name="max" value={props.maxNum} onChange={props.handleEdit}
               className='long-form'
             />
           </label>
           <label>
             Resource Current Value:
-        <input type="text" name="current" value={props.currentNum} onChange={props.handleEdit}
+        <input type="number" name="current" value={props.currentNum} onChange={props.handleEdit}
               className='long-form'
             />
           </label>

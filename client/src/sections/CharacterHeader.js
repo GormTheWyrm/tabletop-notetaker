@@ -203,7 +203,7 @@ class CharacterHeader extends React.Component {
 
 
 
-  handleNewResource = () => { // this creates a new resource. May need a function to come up with the data to put in that resource...
+  handleNewResource = (event) => { // this creates a new resource. May need a function to come up with the data to put in that resource...
     console.log("this will add a new resource");
     // need to get name, min, max and current from somewhere and then put them into this function...
     //simplest way is to add a form
@@ -214,10 +214,11 @@ class CharacterHeader extends React.Component {
       min: 0,
       max: 0,
       current: 0,
+      addValue: 0,
       isEdit: true
     }
     tempObject.push(newResource);
-    console.log(tempObject);
+    this.setState({resource: tempObject});
     // this would be better if input came from a modal...
   }
 
@@ -255,21 +256,7 @@ class CharacterHeader extends React.Component {
     // this.setState({ characterName: myVar })
   }
 
-  handleResourceToggle2 = (event, index) => {
-    console.log("test"); // not working... in subcomponent
-    //make modal pop up
-    //need to obtain myVar...
-
-    let newState = !this.state.editResource;
-
-    this.setState({ editResource: newState })
-    // this neeeds to be redone to involve a modal...
-
-
-    // on save this should setstate for character name!
-
-    // this.setState({ characterName: myVar })
-  }
+  
   handleResourceEdit = (event, index) => {
     //this needs to set state upon input change for the specific resource!
     //cannot test until expand works
@@ -297,7 +284,8 @@ class CharacterHeader extends React.Component {
 
     this.setState({ resource: tempObject });
 
-  }
+  } // MAJOR ISSUE: DESELECTS THE INPUT AREA AFTER EACH KEYSTROKE - only on resourceName!
+  //NEED TO HANDLE ERRORS RELATING TO MIN OVER MAX!
 
 
   render() {
@@ -332,7 +320,8 @@ class CharacterHeader extends React.Component {
         {/* obviously the button needs tweaking */}
         {this.state.resource.map((resource, index) =>
           // map this via AddForm component
-          <div key={this.state.resource[index].resourceName}>
+          // <div key={this.state.resource[index].resourceName}>
+          <div key={index}>
             {/* this should display all resources in state */}
 
 
@@ -353,7 +342,7 @@ class CharacterHeader extends React.Component {
 
 
 
-          </div>  //replace this div with the Resource component
+          </div>  
 
 
         )}
