@@ -60,8 +60,13 @@ function Resource(props) {
               className='my-form' onChange={props.handleInputChange}
               value={props.addNum} />
           </label>
-          <input type="submit" value="Add" />
+          <div><input type="submit" value="Add" />
+          <input type="submit" value="Subtract" onClick={(e) => props.handleSubtract(e, props.resourceIndex)}/>
+          {/* need to figure out a way to get these two buttons on 1 line. will do this when I gt home */}
+          </div>
+          <div>
           <button type="button" className="btn btn-secondary btn-sm" onClick={(e) => props.handleToggle(e, props.resourceIndex)}>Edit Resource</button>
+          </div>
         </form>
       </div>
 

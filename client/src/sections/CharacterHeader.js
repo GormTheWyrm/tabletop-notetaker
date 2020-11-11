@@ -90,6 +90,26 @@ class CharacterHeader extends React.Component {
     this.setState({ resource: tempObject });
 
   }
+  handleSubtraction = (event, index) => {    // this handles math within the resource.
+    event.preventDefault();
+    let current = this.state.resource[index].current;
+    let inputValue = this.state.resource[index].addValue
+    let newValue = current - inputValue;
+    let maxValue = this.state.resource[index].max;
+    let minValue = this.state.resource[index].min;
+    if (newValue === NaN) {
+      newValue = 0;
+    }
+    if (newValue > maxValue) {
+      newValue = maxValue;
+    } else if (newValue < minValue) {
+      newValue = minValue;
+    }
+    let tempObject = this.state.resource;
+    tempObject[index].current = newValue;
+    this.setState({ resource: tempObject });
+
+  }
 
 
   handleSave = (event) => {
@@ -274,6 +294,7 @@ class CharacterHeader extends React.Component {
               addNum={this.state.resource[index].addValue}
               resourceIndex={index}
               handleSubmit={(e) => this.handleAddition(e, index)}
+              handleSubtract={(e) => this.handleSubtraction(e, index)}
               isEdit={this.state.resource[index].isEdit}
               // handle edit input...
               handleEdit={(e) => this.handleResourceEdit(e, index)} //dont know if this works yet
