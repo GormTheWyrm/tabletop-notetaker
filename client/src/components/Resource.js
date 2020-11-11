@@ -1,6 +1,8 @@
 import React from 'react';
 import '../SCSS/main.css';
 
+// may want to change location of save buttons.
+//also, add in delete buttons...
 
 function Resource(props) {
 

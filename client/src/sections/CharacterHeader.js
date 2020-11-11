@@ -1,23 +1,24 @@
 import React from 'react';
 import '../SCSS/main.css';
 import Resource from '../components/Resource';
-// import AddStatForm from '../addStatForm';
-// I may need to make the input its own component
 
-// https://stackoverflow.com/questions/43687964/only-numbers-input-number-in-react
+//this app very much relies on MongoDB because the resources can change per character.
+//A SQL version would probably have a set number of resources per class, with the max, min and current values changing per character.
+
 
 /*
 potential bug if resources have the same name property. (form name is resourceName)
 */
 
 // I need to initialize state with data from character database...
-
+//current errors:
+//  cannot manually put in the subtraction sign
+// solutions? add a subtract button.
 
 
 class CharacterHeader extends React.Component {
   constructor(props) {
     super(); //super(props); 
-
     this.state = {
       error: null,
       isLoaded: false,
@@ -48,42 +49,18 @@ class CharacterHeader extends React.Component {
         max: 0,
         current: 0
       }
-
-
     }
-    //this.handleAdd = this.handleAdd.bind(this); // is this needed? This is reason I have constructor
     this.handleAddition = this.handleAddition.bind(this);
+    //binding not needed if define funcitons with arrow functions!
+    //which also means the constructor may not be needed...
   }
 
-  //binding not needed if define funcitons with arrow functions!
-  //which also means the constructor may not be needed...
-
-
-
   //init function to pull data from database.
-  //onChange function
-  //on save function to send daa to database...
-  //onClick to add new resource
-  //addResource to add that resource to the db... ?
-  //need to add a increase max button
-
-
-  //replace this with database content
-  //may want to make resources appear in 2 columns on larger screens (later)
-
-
-
-
-
-  // https://stackoverflow.com/questions/29810914/react-js-onclick-cant-pass-value-to-method
-  //increase max button and function...
-  //use spread operator to add new resource?
 
 
   handleResourceChange = (event, index) => {  // this allows subcomponent numbers to be changed by the user
     event.preventDefault();
     const target = event.target;  //this is a string 
-    console.log(event.target.value);
     const value = parseInt(target.value); //this should be an integer now
     let tempObject = this.state.resource;
     tempObject[index].addValue = value;
@@ -100,6 +77,9 @@ class CharacterHeader extends React.Component {
     let newValue = current + inputValue;
     let maxValue = this.state.resource[index].max;
     let minValue = this.state.resource[index].min;
+    if (newValue === NaN) {
+      newValue = 0;
+    }
     if (newValue > maxValue) {
       newValue = maxValue;
     } else if (newValue < minValue) {
@@ -112,11 +92,9 @@ class CharacterHeader extends React.Component {
   }
 
 
-
-
-
-
   handleSave = (event) => {
+    //currentError: outbound data not the same as state.
+
     // this should call api...
     //current issue: outbound data is not overwritten with state.
     console.log("this will call api... eventually");
@@ -175,38 +153,17 @@ class CharacterHeader extends React.Component {
     }
   }
   // for loop, create new object for each part of array and then add it to above obect...
+  //end save function
 
-  handleNameEdit = () => {
-    console.log("test"); //works!
-    //make modal pop up
-    //need to obtain myVar...
-
-    // console.log(workingName); //not defined
-
-    let myVar = "test"
+  handleNameEdit = () => {  // this toggles a form and changes the name based on changes to that form
+    //maybe change this later to make modal pop up
     let newState = !this.state.editName;
-    console.log(newState);
     this.setState({ editName: newState })
-    // this neeeds to be redone to involve a modal...
-
-
-    // on save this should setstate for character name!
-
-    // this.setState({ characterName: myVar })
   }
 
-  handleNameChange = (event) => {
-    this.setState({ characterName: event.target.value });
-  } //need a way for this function to determine which section is being changed...
-  // lets make this a modal instead!
-  //onChange is a event for form fields...
 
-
-
-  handleNewResource = (event) => { // this creates a new resource. May need a function to come up with the data to put in that resource...
+  handleNewResource = (event) => { // this creates a new resource, adding a blank resource to state
     console.log("this will add a new resource");
-    // need to get name, min, max and current from somewhere and then put them into this function...
-    //simplest way is to add a form
     // modal would be cooler...
     let tempObject = this.state.resource;
     let newResource = {
@@ -218,7 +175,7 @@ class CharacterHeader extends React.Component {
       isEdit: true
     }
     tempObject.push(newResource);
-    this.setState({resource: tempObject});
+    this.setState({ resource: tempObject });
     // this would be better if input came from a modal...
   }
 
@@ -227,64 +184,49 @@ class CharacterHeader extends React.Component {
   handleInputChange = (event) => {
     const target = event.target;
     console.log(event.target.value);
-    const value = target.value; //may need to parse int... make a new function for numbers! handleNumberChange
+    const value = target.value; //separate function deals with math because these leaves a string
     this.setState({
-      // [name]: value
-      // ...this.state,
       [event.target.name]: value
     });
   } // https://www.pluralsight.com/guides/handling-multiple-inputs-with-single-onchange-handler-react
 
 
-  handleResourceToggle = (event, index) => {
-    console.log("test"); // Works
-    //make modal pop up
-    //need to obtain myVar...
-    //... later!
+  handleResourceToggle = (event, index) => {  //toggles resource form on and off
+
     let newBool = !this.state.resource[index].isEdit;
     let newState = this.state.resource;
     newState[index].isEdit = newBool;
     this.setState({ resource: newState });
-
-    this.setState({ resource: newState })
-    // this neeeds to be redone to involve a modal...
-
-
-
-    // on save this should setstate for character name!
-
-    // this.setState({ characterName: myVar })
   }
 
-  
-  handleResourceEdit = (event, index) => {
-    //this needs to set state upon input change for the specific resource!
-    //cannot test until expand works
+
+  handleResourceEdit = (event, index) => {  // handles changes to the expanded resource form.
     const target = event.target;
-    console.log(event.target.value);
-
-
-    const value = target.value; //may need to parse int... make a new function for numbers! handleNumberChange
+    const value = target.value; //may need to parse int... make a new function for numbers! handleNumberChange.... handleAddition works here?
     let tempObject = this.state.resource;
-
     if (target.name === "resourceName") {
       tempObject[index].resourceName = value;
-
     } else if (target.name === "min") {
-      tempObject[index].min = value;
-
+      tempObject[index].min = parseInt(value);
     } else if (target.name === "max") {
-      tempObject[index].max = value;
-
+      tempObject[index].max = parseInt(value);
     } else if (target.name === "current") {
-      tempObject[index].current = value;
+      tempObject[index].current = parseInt(value);
     } else {
       console.log("error: no change"); //I dont think this is possible as an error but it should just save the current state
     }
-
+    if (tempObject[index].max < tempObject[index].min) {
+      tempObject[index].max = tempObject[index].min;
+      tempObject[index].current = tempObject[index].min;
+    }
+    if (tempObject[index].current > tempObject[index].max) {
+      tempObject[index].current = tempObject[index].max
+    }
+    if (tempObject[index].current < tempObject[index].min) {
+      tempObject[index].current = tempObject[index].min
+    }
     this.setState({ resource: tempObject });
-
-  } // MAJOR ISSUE: DESELECTS THE INPUT AREA AFTER EACH KEYSTROKE - only on resourceName!
+  }
   //NEED TO HANDLE ERRORS RELATING TO MIN OVER MAX!
 
 
@@ -323,8 +265,6 @@ class CharacterHeader extends React.Component {
           // <div key={this.state.resource[index].resourceName}>
           <div key={index}>
             {/* this should display all resources in state */}
-
-
             <Resource
               resourceName={this.state.resource[index].resourceName}
               currentNum={this.state.resource[index].current}
@@ -339,14 +279,10 @@ class CharacterHeader extends React.Component {
               handleEdit={(e) => this.handleResourceEdit(e, index)} //dont know if this works yet
               handleToggle={(e) => this.handleResourceToggle(e, index)}
             />
-
-
-
-          </div>  
-
-
+          </div>
         )}
 
+        <hr>{/* need to add a barrier here*/}</hr>
         <div className="subcomponent">
           <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleNewResource}>Add Resource</button>
           {/* this should simply add a resource to state and let the app rerender! */}
@@ -356,7 +292,7 @@ class CharacterHeader extends React.Component {
           {/* format buttons! subcomponent class provides top and bottom padding to div, acting as margins for buttons */}
           {/* add resource should pop up and let the user fill in resourceName, minimum, current and max */}
         </div>
-        
+
       </div>
     );
   }
