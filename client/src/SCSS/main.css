@@ -15,8 +15,9 @@
 }
 
 .subcomponent {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  border: #701a97 solid 2px;
+  padding: 5px;
+  margin: 1px 0px;
 }
 
 .modal {
@@ -24,10 +25,14 @@
   position: relative;
 }
 
+.btn {
+  margin: 3px;
+}
+
 .long-form {
-  width: 200px;
+  width: 180px;
   color: #61dafb;
-  background-color: #282c34;
+  background-color: #1d1f24;
 }
 
 /* old */

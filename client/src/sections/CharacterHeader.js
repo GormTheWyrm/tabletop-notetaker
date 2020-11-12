@@ -219,6 +219,22 @@ class CharacterHeader extends React.Component {
     this.setState({ resource: newState });
   }
 
+  handleResourceDelete = (event, index) => {  //toggles resource form on and off
+    let newState = [];
+
+    for (let i = 0; i < this.state.resource.length; i++) {
+      if (index !== i) { newState[i] = this.state.resource[i]; }
+
+    }
+    // let newstate = newArray
+    // console.log(newState);
+
+    // let newBool = !this.state.resource[index].isEdit;
+    // let newState = this.state.resource;
+    // newState[index].isEdit = newBool;
+    this.setState({ resource: newState });
+  }
+
 
   handleResourceEdit = (event, index) => {  // handles changes to the expanded resource form.
     const target = event.target;
@@ -265,7 +281,7 @@ class CharacterHeader extends React.Component {
           <div>
             <h3> <span> {workingName} </span><button onClick={this.handleNameEdit}>Save</button> </h3>
             <form className="form-inline"
-            // onSubmit={(e) => this.handleInputChange}
+
             >
 
               <label>
@@ -279,10 +295,8 @@ class CharacterHeader extends React.Component {
           :
           <h3 > <span>{this.state.characterName}</span> <button onClick={this.handleNameEdit}>edit</button></h3>
         )}
-        {/* obviously the button needs tweaking */}
+
         {this.state.resource.map((resource, index) =>
-          // map this via AddForm component
-          // <div key={this.state.resource[index].resourceName}>
           <div key={index}>
             {/* this should display all resources in state */}
             <Resource
@@ -299,11 +313,10 @@ class CharacterHeader extends React.Component {
               // handle edit input...
               handleEdit={(e) => this.handleResourceEdit(e, index)} //dont know if this works yet
               handleToggle={(e) => this.handleResourceToggle(e, index)}
+              handleDelete={(e) => this.handleResourceDelete(e, index)}
             />
           </div>
         )}
-
-        <hr>{/* need to add a barrier here*/}</hr>
         <div className="subcomponent">
           <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleNewResource}>Add Resource</button>
           {/* this should simply add a resource to state and let the app rerender! */}

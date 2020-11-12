@@ -21,7 +21,7 @@ $secondaryTextColor: darkslategrey;
 
 // testign colors
 $color0: white;
-$color1: #282c34;
+$color1: #1d1f24;
 $color2:  #61dafb;
 $color3:  lightcoral;
 $color4:  #fb6161;
@@ -30,7 +30,7 @@ $color6: rgb(38, 189, 38);
 $color7:   #a727e2;
 $color8:  #e71cc5;
 $color9: darkslategrey;
-
+$color71:   #701a97;
 
 $otherColor: darkgreen;
 $otherColor2: peru;
@@ -59,8 +59,11 @@ $otherColor3: #fb6161;
 }
 .subcomponent /* ... */
 {
-  padding-top: 5px;
-  padding-bottom: 5px;
+// I need to find a better way to separate these subsections. Main purpose is to visually separate the different resurces or elements...
+// perhaps a simple margin will work...
+  border: $color71 solid 2px;
+  padding: 5px;
+  margin: 1px 0px;
 }
 
 
@@ -71,14 +74,16 @@ $otherColor3: #fb6161;
   //discontinued, will fix later
 
 }
-
+.btn{
+  margin: 3px;
+}
 
 
 
 
 // ~~~
 .long-form{
-  width: 200px;
+  width: 180px;
   color: $color2;
   background-color: $color1;
 }
