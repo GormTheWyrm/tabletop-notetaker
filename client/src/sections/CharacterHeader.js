@@ -39,7 +39,7 @@ class CharacterHeader extends React.Component {
         addValue: 0
       }
       ],
-      inputValue1: 0,
+      inputValue1: 0, //test to see if I can delete this
       editName: false,
       editResource: false,
       resourceModalOpen: false,
@@ -77,9 +77,9 @@ class CharacterHeader extends React.Component {
     let newValue = current + inputValue;
     let maxValue = this.state.resource[index].max;
     let minValue = this.state.resource[index].min;
-    if (newValue === NaN) {
-      newValue = 0;
-    }
+    if (isNaN(newValue)) {
+      newValue = current;
+    } //this may not be an issue any more
     if (newValue > maxValue) {
       newValue = maxValue;
     } else if (newValue < minValue) {

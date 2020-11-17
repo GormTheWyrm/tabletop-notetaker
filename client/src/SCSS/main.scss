@@ -55,7 +55,10 @@ $otherColor3: #fb6161;
 }
 .subSection   /* formatting for sections */
 {
-
+  // remove this?
+  padding: 5px;
+  border: solid 1px $color7;
+  margin: 1px;
 }
 .subcomponent /* ... */
 {
