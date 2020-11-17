@@ -42,12 +42,13 @@ db.once('open', () => {
 
 
 const express = require('express');
-const favicon = require('express-favicon'); //look this up
+// const favicon = require('express-favicon'); //look this up
 const { dirname } = require('path');
 const path = require('path');
 const port = process.env.PORT || 8080;
 const app = express();
-app.use(favicon(__dirname + '/build/favicon.ico')); //is this needed?
+// app.use(favicon(__dirname + '/build/favicon.ico')); //is this needed?
+// if using this need to npm i express-favicon
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'build')));
 app.get('/ping', function (req, res){
