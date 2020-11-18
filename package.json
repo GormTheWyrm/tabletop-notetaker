@@ -1,4 +1,6 @@
 {
+  
+  "homepage": "https://gorms-tabletop-notetaker.herokuapp.com/",
   "name": "tabletop-notetaker",
   "version": "1.0.0",
   "description": "A place to view and save tabletop data",
@@ -30,6 +32,5 @@
   },
   "engines": {
     "node": "12.16.3"
-  },
-  "homepage": "https://github.com/GormTheWyrm/tabletop-notetaker#readme"
+  }
 }

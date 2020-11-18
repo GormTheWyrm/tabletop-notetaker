@@ -1,5 +1,5 @@
 //pulling this from bootcamp final project
-/*
+
 const express = require('express');
 const path = require('path');
 const db = require('./config/connection');  //not set up yet?
@@ -19,9 +19,9 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
+// next step is to connect to the database. Currently trying to host frontend first
 
-
-
+/*
 ~// Connect to the Mongo DB
 ~mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
 ~// Start the API server
@@ -29,16 +29,16 @@ app.use(routes);
  ~ console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 ~});
 ~//replace the above chunk with the below line, to add listener and db from other folders
-
-
-
-db.once('open', () => {
-    app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));
-  });
-
 */
 
-  /* this worked on a simpel app with no database:*/
+
+// db.once('open', () => {
+    app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));
+  // });
+
+
+
+  /* this worked on a simpel app with no database:
 
 
 const express = require('express');
@@ -58,5 +58,5 @@ app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 app.listen(port);
-
+*/
 
