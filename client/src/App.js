@@ -241,7 +241,7 @@ class App extends React.Component {
     }
     this.setState({ resource: tempObject });
   }
-  //WORKING:
+ 
 
 
   handleResourceDelete = (event, index) => {  //toggles resource form on and off
@@ -259,7 +259,7 @@ class App extends React.Component {
 
 
 
-
+ //WORKING:
   //end working
 
 
