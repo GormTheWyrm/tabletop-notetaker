@@ -41,6 +41,8 @@ $otherColor3: #fb6161;
   background-color: $primaryBgColor;
   min-height: 100vh;
   color: $primaryTextColor;
+  // font-family: Arial, Helvetica, sans-serif;
+  // visibility: visible;
 }
 .page  /* page specific formatting*/
 {
@@ -90,7 +92,17 @@ $otherColor3: #fb6161;
   color: $color2;
   background-color: $color1;
 }
-
+.loginPage{
+align-content: center;
+width: 50vw;
+border: solid 1px $color8;
+margin: auto;
+margin-top: 10vh;
+}
+.loginDiv{
+  text-align: center;
+  border: solid 1px $color7;
+}
 
 
 /* old */

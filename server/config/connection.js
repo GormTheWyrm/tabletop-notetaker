@@ -5,6 +5,8 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/tabletop_notetake
   useUnifiedTopology: true,
   useCreateIndex: true,
   useFindAndModify: true,
-});
+})
+.then(() => console.log("Database Connected Successfully"))
+.catch(err => console.log(err));
 
 module.exports = mongoose.connection;

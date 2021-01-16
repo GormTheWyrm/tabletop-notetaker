@@ -53,6 +53,7 @@ function Resource(props) {
 
         <form className="form-inline"
           onSubmit={(e) => props.handleSubmit(e, props.resourceIndex)}
+          // I should go back and make this handleAddition because it looks confusing
         >
           <div className="col-6">
           <span>{props.resourceName} {props.currentNum} / {props.maxNum} </span>
@@ -88,7 +89,7 @@ function Resource(props) {
 
 
 // props: resource[i].resourceName
-// ... map resource to this compoenent... should just be resourcename, not xx[i]...
+// ... map resource to this component... should just be resourcename, not xx[i]...
 //resourceName, currentNum, minNum, maxNum
 
 export default Resource;

@@ -61,15 +61,42 @@ class MainPage extends React.Component {
   render() {
     return (
       <div className="container-fluid pageInset">
+        {/* TESTING */}
+        <p>TESTING</p>
+        <p>name: {this.props.mainCharacter.characterName}</p>
+        <p>{this.props.mainCharacter.resource[0].addValue}</p>
+        <p>{this.props.mainCharacter.resource[0].resourceName} Max {this.props.mainCharacter.resource[0].max}</p>
+        {/* END TESTING */}
         <div className="row">
 
           <div className="col-lg-5 col-md-6 testCont"> {/* left section */}
             <div className="row buffer">
-              <CharacterHeader />
+              <CharacterHeader mainCharacter={this.props.mainCharacter}
+                handleResourceChange={this.props.handleResourceChange}
+                handleAddition={this.props.handleAddition}
+                handleSubtraction={this.props.handleSubtraction}
+                handleSaveCharacter={this.props.handleSaveCharacter}
+                handleNameEdit={this.props.handleNameEdit} // changes boolean to allow name to be edited
+                handleNameChange={this.props.handleNameChange}  //onchange function for each letter of name change
+                handleNewResource={this.props.handleNewResource}
+                handleResourceToggle={this.props.handleResourceToggle}
+                handleResourceEdit={this.props.handleResourceEdit}
+                handleResourceDelete={this.props.handleResourceDelete}
+
+                // e and index may not be passed in ... on higher levels... test this now!
+              />
+              {/* character header is above this line */}
+
+
+
+
+
+
+
               {/* <OptionSection /> */}
               {/* lets add in options section later- start with a simple note taker */}
             </div>
-            
+
             <h5>Character Notes</h5>
             <DescriptionSection />
           </div>

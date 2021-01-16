@@ -41,6 +41,20 @@
   background-color: #1d1f24;
 }
 
+.loginPage {
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 50vw;
+  border: solid 1px #e71cc5;
+  margin: auto;
+  margin-top: 10vh;
+}
+
+.loginDiv {
+  text-align: center;
+  border: solid 1px #a727e2;
+}
+
 /* old */
 .pageInset {
   /* creates a space inside of the main app */
