@@ -61,12 +61,7 @@ class MainPage extends React.Component {
   render() {
     return (
       <div className="container-fluid pageInset">
-        {/* TESTING */}
-        <p>TESTING</p>
-        <p>name: {this.props.mainCharacter.characterName}</p>
-        <p>{this.props.mainCharacter.resource[0].addValue}</p>
-        <p>{this.props.mainCharacter.resource[0].resourceName} Max {this.props.mainCharacter.resource[0].max}</p>
-        {/* END TESTING */}
+
         <div className="row">
 
           <div className="col-lg-5 col-md-6 testCont"> {/* left section */}
