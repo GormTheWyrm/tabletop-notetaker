@@ -9,7 +9,7 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/tabletop_notetake
 /*
 .then(() => console.log("Database Connected Successfully"))
 .catch(err => console.log(err));
-
+removed this to try and get heroku to work
 */
 
 module.exports = mongoose.connection;

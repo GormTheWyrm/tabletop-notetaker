@@ -32,9 +32,9 @@ app.use(routes);
 */
 
 
-// db.once('open', () => {
-    app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));
-  // });
+db.once('open', () => {  //removed to try and get heroku to work
+    app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));  //uncommented to try and get heroku to work
+  });  //removed to try and get heroku to work
 
 
 
