@@ -1,16 +1,23 @@
 //pulling this from bootcamp final project
 //might need to require mongodb...
+//I don;t see where the actual database is connected...
+
+
 const express = require('express');
 const path = require('path');
 const db = require('./config/connection');  //not set up yet?
-//this is an issue...
+//this is an issue... 
+//monsgoose.connection
 const routes = require('./routes');
 
-// const mongoose = require("mongoose");    //should use elsewhere
 const app = express();
-const PORT = process.env.PORT || 3001; //this is connecting here instead of through the connection file...
+const PORT = process.env.PORT || 3001; 
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+
+// const mongoose = require("mongoose");    
 
 
 
@@ -22,29 +29,10 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 // next step is to connect to the database. Currently trying to host frontend first
 
-/*
-~// Connect to the Mongo DB
-~mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
-~// Start the API server
-~app.listen(PORT, function() {
- ~ console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-~});
-~//replace the above chunk with the below line, to add listener and db from other folders
-*/
 
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/tabletop_notetaker_db', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: true,
-})
-  .then(() => console.log("Database Connected Successfully"))
-  .catch(err => console.log(err));
-
-
-// db.once('open', () => {  //removed to try and get heroku to work
+db.once('open', () => {  //removed to try and get heroku to work
 app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));  //uncommented to try and get heroku to work
-  // });  //removed to try and get heroku to work
+  });  //removed to try and get heroku to work
 
 
 
