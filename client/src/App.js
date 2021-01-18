@@ -246,7 +246,7 @@ class App extends React.Component {
 
   handleResourceDelete = (event, index) => {  //toggles resource form on and off
     let newArray = [];
-    console.log("resource delete");
+    // console.log("resource delete");
     for (let i = 0; i < this.state.mainCharacter.resource.length; i++) {
       if (index !== i) { newArray.push(this.state.mainCharacter.resource[i]); }
 

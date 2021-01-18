@@ -32,10 +32,10 @@ app.use(routes);
 */
 
 
-db.once('open', () => {  //removed to try and get heroku to work
+// db.once('open', () => {  //removed to try and get heroku to work
     app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));  //uncommented to try and get heroku to work
-  });  //removed to try and get heroku to work
-
+  // });  //removed to try and get heroku to work
+//I think there is an issue with my heroku connection to the database
 
 
   /* this worked on a simpel app with no database:
