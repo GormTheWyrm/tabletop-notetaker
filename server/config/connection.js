@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+//I don't think this file is being reached...
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/tabletop_notetaker_db', {
   useNewUrlParser: true,
   useUnifiedTopology: true,

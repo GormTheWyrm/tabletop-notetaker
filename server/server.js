@@ -1,13 +1,14 @@
 //pulling this from bootcamp final project
-
+//might need to require mongodb...
 const express = require('express');
 const path = require('path');
 const db = require('./config/connection');  //not set up yet?
+//this is an issue...
 const routes = require('./routes');
 
 // const mongoose = require("mongoose");    //should use elsewhere
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.MONGO_URI || 3001; //this is connecting here instead of through the connection file...
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -32,9 +33,9 @@ app.use(routes);
 */
 
 
-// db.once('open', () => {  //removed to try and get heroku to work
+db.once('open', () => {  //removed to try and get heroku to work
     app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));  //uncommented to try and get heroku to work
-  // });  //removed to try and get heroku to work
+  });  //removed to try and get heroku to work
 //I think there is an issue with my heroku connection to the database
 
 
