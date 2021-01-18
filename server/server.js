@@ -8,7 +8,7 @@ const routes = require('./routes');
 
 // const mongoose = require("mongoose");    //should use elsewhere
 const app = express();
-const PORT = process.env.MONGO_URI || 3001; //this is connecting here instead of through the connection file...
+const PORT = process.env.PORT || 3001; //this is connecting here instead of through the connection file...
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -32,16 +32,25 @@ app.use(routes);
 ~//replace the above chunk with the below line, to add listener and db from other folders
 */
 
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/tabletop_notetaker_db', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: true,
+})
+  .then(() => console.log("Database Connected Successfully"))
+  .catch(err => console.log(err));
 
-db.once('open', () => {  //removed to try and get heroku to work
-    app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));  //uncommented to try and get heroku to work
-  });  //removed to try and get heroku to work
-//I think there is an issue with my heroku connection to the database
+
+// db.once('open', () => {  //removed to try and get heroku to work
+app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));  //uncommented to try and get heroku to work
+  // });  //removed to try and get heroku to work
 
 
-  /* this worked on a simpel app with no database:
 
 
+
+/* this worked on a simpel app with no database:
 const express = require('express');
 // const favicon = require('express-favicon'); //look this up
 const { dirname } = require('path');
@@ -53,10 +62,10 @@ const app = express();
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'build')));
 app.get('/ping', function (req, res){
-    return res.send('pong');
+  return res.send('pong');
 });
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 app.listen(port);
 */

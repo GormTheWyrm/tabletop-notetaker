@@ -12,3 +12,4 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/tabletop_notetake
 
 
 module.exports = mongoose.connection;
+//need to export and import this properly
