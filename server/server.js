@@ -1,17 +1,18 @@
 //pulling this from bootcamp final project
 //might need to require mongodb...
 //I don;t see where the actual database is connected...
-
+let mongo = require('mongodb');
+let MongoClient = mongo.MongoClient;
 
 const express = require('express');
 const path = require('path');
-const db = require('./config/connection');  //not set up yet?
+// const db = require('./config/connection');  //not set up yet?
 //this is an issue... 
 //monsgoose.connection
 const routes = require('./routes');
 
 const app = express();
-const PORT = process.env.PORT || 3001; 
+const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -27,13 +28,36 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
-// next step is to connect to the database. Currently trying to host frontend first
+
+// next step is to connect to the database. Currently will not work with db.once...
+//...meaning database is not connecting. Probably an issue with heroku!
+//..works on localhost!
+
+/*
+testing mongodb without the mongoose connection:
+create new db...
+using https://developer.mongodb.com/quickstart/node-connect-mongodb
+... https://university.mongodb.com/mercury/M220JS/2021_January_12/overview
+process.env.MONGO_URI
+*/
 
 
-db.once('open', () => {  //removed to try and get heroku to work
-app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));  //uncommented to try and get heroku to work
-  });  //removed to try and get heroku to work
 
+MongoClient.connect(
+  process.env.MONGO_URI || 'mongodb://localhost/tabletop_notetaker_db',
+
+  { useNewUrlParser: true },
+)
+  .catch(err => {
+    console.error(err.stack)
+    process.exit(1)
+  })
+  .then(async client => {
+    // db.once('open', () => {  //removed to try and get heroku to work
+    app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));  //uncommented to try and get heroku to work
+    // });  //removed to try and get heroku to work
+
+  });
 
 
 
