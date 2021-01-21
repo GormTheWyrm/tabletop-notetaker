@@ -2,7 +2,7 @@
 //might need to require mongodb...
 //I don;t see where the actual database is connected...
 let mongo = require('mongodb');
-let MongoClient = mongo.MongoClient;
+let MongoClient = mongo.MongoClient; //cannot import here... hopefully this works instead
 
 const express = require('express');
 const path = require('path');
@@ -10,6 +10,7 @@ const path = require('path');
 //this is an issue... 
 //monsgoose.connection
 const routes = require('./routes');
+const { hasUncaughtExceptionCaptureCallback } = require('process');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -45,7 +46,6 @@ process.env.MONGO_URI
 
 MongoClient.connect(
   process.env.MONGO_URI || 'mongodb://localhost/tabletop_notetaker_db',
-
   { useNewUrlParser: true },
 )
   .catch(err => {
